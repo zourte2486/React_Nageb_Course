@@ -1,19 +1,13 @@
+import ReactDOM from "react-dom/client";
+import Content from "./Content";
+import "./style.css";
+import NavBar from "./Components/NavBar";
 
-import ReactDOM from 'react-dom/client';
-import App from "./App";
-import "./Style.css";
-import Footer from './Components/Footer';
-import Header from './Components/Header';
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(<div>
-
-    <App />
-    <Footer />
-    <Header />
-
-    
-    
-
-</div>); 
+root.render(
+  <di v className="container">
+    <NavBar />
+    <Content />
+  </di>
+);
