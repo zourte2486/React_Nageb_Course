@@ -1,15 +1,13 @@
-import { data } from "./data";
-import Card from "./Components/Card";
+import React from 'react';
+
 
 export default function App() {
-  const dataShow = data.map((item) => (
-    <Card 
-    img={item.img} 
-    title={item.title} 
-    desc={item.desc}
-    review={item.review}
-    price={item.price}
-    />
-  ));
-  return <div>{dataShow}</div>;
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div style={{ textAlign: 'center'}}>
+      <p>Current count: {count}</p>
+      <button onClick={() => setCount(count + 10)}>Increase</button>
+    </div>
+  );
 }
