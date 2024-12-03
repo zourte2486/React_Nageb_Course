@@ -1,19 +1,34 @@
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
+const Counter = () => {
+  const [count, setCount] = useState(0);
 
-export default function App() {
-  
+  // useEffect runs after every render or when `count` changes
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
-    .then((res) => res.json())
-    .then((data) => console.log(data.data.memes.map((item) => item.name)))
-  });
+    console.log(`Count has been updated to: ${count}`);
+  }, [count]); // Runs only when `count` changes
 
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  };
 
-
+  const centeredStyle = {
+    background: 'lightblue',
+    padding: '20px',
+    borderRadius: '5px',
+  };
 
 
   return (
-    <div></div>
+    <div style={containerStyle}>
+      <div style={centeredStyle}></div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
   );
-}
+};
+
+export default Counter;
