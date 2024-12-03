@@ -1,13 +1,19 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 
 export default function App() {
-  const [count, setCount] = React.useState(0);
+  
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+    .then((res) => res.json())
+    .then((data) => console.log(data.data.memes.map((item) => item.name)))
+  });
+
+
+
+
 
   return (
-    <div style={{ textAlign: 'center'}}>
-      <p>Current count: {count}</p>
-      <button onClick={() => setCount(count + 10)}>Increase</button>
-    </div>
+    <div></div>
   );
 }
